@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seven Small Changes — a spot-the-difference game</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hud">
+  <div class="brand">Seven Small Changes</div>
+  <div class="hud-item" id="level-name">Level 1/3 — Morning Market</div>
+  <div class="hud-item" id="counter">Found 0/7</div>
+  <div class="hud-item" id="score">Score 0</div>
+  <div class="hud-item timer" id="timer">03:00</div>
+  <button class="hud-btn" id="hint-btn" type="button">Hint <span id="hints-left">Hints 3</span></button>
+  <button class="hud-btn" id="restart-btn" type="button">Restart (R)</button>
+</header>
+
+<main class="board">
+  <figure class="panel" id="panel-left">
+    <img id="img-left" src="assets/scene1.png" alt="Original picture" draggable="false">
+    <div class="marks" id="marks-left"></div>
+    <figcaption>Original</figcaption>
+  </figure>
+  <figure class="panel" id="panel-right">
+    <img id="img-right" src="assets/scene1-b.png" alt="Changed picture" draggable="false">
+    <div class="marks" id="marks-right"></div>
+    <figcaption>Changed — find 7 differences</figcaption>
+  </figure>
+</main>
+
+<div class="toast hidden" id="toast" role="status"></div>
+
+<section class="overlay" id="start-overlay">
+  <div class="card">
+    <h1>Seven Small Changes</h1>
+    <p class="tagline">Two pictures. Seven small changes. One sharp eye.</p>
+    <p>Study the two panels side by side and click every difference you spot —
+       on either picture. Each find is worth 100 points. A wrong click costs
+       5 seconds. Three levels, seven differences each — the garden at night
+       hides them best.</p>
+    <ul class="rules">
+      <li>3:00 per level — beat the clock</li>
+      <li>3 hints per level (H) — one difference pulses for 2 seconds</li>
+      <li>R restarts the level</li>
+    </ul>
+    <button class="big-btn" id="start-btn" type="button">Start hunting</button>
+  </div>
+</section>
+
+<section class="overlay hidden" id="complete-overlay">
+  <div class="card">
+    <h1 id="complete-title">Level complete!</h1>
+    <p id="complete-score">Time bonus +0</p>
+    <button class="big-btn" id="next-btn" type="button">Next level</button>
+  </div>
+</section>
+
+<section class="overlay hidden" id="win-overlay">
+  <div class="card">
+    <h1>You found them all!</h1>
+    <p>All 21 differences across the market, the library and the night garden.</p>
+    <p class="big-stat" id="win-score">Total score 0</p>
+    <p class="big-stat" id="win-time">Total time 00:00</p>
+    <button class="big-btn" id="again-btn" type="button">Play again</button>
+  </div>
+</section>
+
+<section class="overlay hidden" id="fail-overlay">
+  <div class="card">
+    <h1>Out of time</h1>
+    <p id="fail-level">Time ran out.</p>
+    <button class="big-btn" id="retry-btn" type="button">Try this level again</button>
+  </div>
+</section>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
